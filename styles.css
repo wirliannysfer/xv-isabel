@@ -1,0 +1,512 @@
+:root {
+--emerald-darkest: #061c14;
+--emerald-deep: #0b2e21;
+--emerald-mid: #134633;
+--emerald-light: #1e6349;
+--gold-light: #fbf0b2;
+--gold-main: #d4af37;
+--gold-dark: #9c7818;
+--cream-text: #f7f4e9;
+--muted-text: #d5dec9;
+--card-bg: rgba(10, 38, 28, 0.84);
+}
+
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+body {
+min-height: 100vh;
+background:
+radial-gradient(circle at 50% 0%, #19533d 0%, var(--emerald-deep) 45%, var(--emerald-darkest) 100%);
+color: var(--cream-text);
+font-family: "Cormorant Garamond", Georgia, serif;
+line-height: 1.6;
+overflow-x: hidden;
+position: relative;
+}
+
+/* Luciérnagas animadas */
+#fireflies-container {
+position: fixed;
+inset: 0;
+pointer-events: none;
+z-index: 1;
+overflow: hidden;
+}
+
+.firefly {
+position: absolute;
+width: 6px;
+height: 6px;
+border-radius: 50%;
+background: #fff7b2;
+box-shadow: 0 0 10px 3px rgba(246, 211, 101, 0.85), 0 0 20px 6px rgba(173, 255, 140, 0.35);
+opacity: 0;
+animation: floatFirefly linear infinite;
+}
+
+@keyframes floatFirefly {
+0% {
+transform: translateY(0) translateX(0) scale(0.6);
+opacity: 0;
+}
+20% {
+opacity: 0.95;
+}
+50% {
+transform: translateY(-45px) translateX(22px) scale(1.1);
+opacity: 0.5;
+}
+80% {
+opacity: 0.9;
+}
+100% {
+transform: translateY(-95px) translateX(-18px) scale(0.7);
+opacity: 0;
+}
+}
+
+/* Widget flotante de música */
+.music-widget {
+position: fixed;
+bottom: 18px;
+right: 18px;
+z-index: 50;
+display: flex;
+flex-direction: column;
+align-items: flex-end;
+gap: 6px;
+}
+
+.music-btn {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+padding: 11px 18px;
+border-radius: 999px;
+border: 1.5px solid var(--gold-main);
+background: linear-gradient(135deg, #0e3828, #19533d);
+color: var(--gold-light);
+font-family: "Cinzel Decorative", serif;
+font-size: 0.82rem;
+font-weight: 700;
+cursor: pointer;
+box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45), 0 0 14px rgba(212, 175, 55, 0.25);
+transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.music-btn:hover {
+transform: translateY(-2px);
+box-shadow: 0 10px 26px rgba(0, 0, 0, 0.55), 0 0 18px rgba(212, 175, 55, 0.45);
+}
+
+.music-btn.playing {
+background: linear-gradient(135deg, var(--gold-dark), var(--gold-main));
+color: #082017;
+}
+
+.yt-fallback-link {
+font-size: 0.78rem;
+color: var(--gold-light);
+background: rgba(6, 28, 20, 0.88);
+border: 1px solid rgba(212, 175, 55, 0.4);
+padding: 4px 10px;
+border-radius: 999px;
+text-decoration: none;
+transition: background 0.2s ease;
+}
+
+.yt-fallback-link:hover {
+background: rgba(212, 175, 55, 0.2);
+}
+
+/* Contenedor principal */
+.invitation-wrapper {
+position: relative;
+z-index: 2;
+max-width: 660px;
+margin: 0 auto;
+padding: 32px 18px 96px;
+display: flex;
+flex-direction: column;
+gap: 24px;
+}
+
+/* Tarjetas */
+.hero-card,
+.section-card {
+position: relative;
+background: var(--card-bg);
+backdrop-filter: blur(8px);
+border: 1.5px solid rgba(212, 175, 55, 0.55);
+border-radius: 22px;
+padding: 36px 26px;
+text-align: center;
+box-shadow:
+0 18px 40px rgba(0, 0, 0, 0.45),
+inset 0 0 28px rgba(212, 175, 55, 0.08);
+}
+
+/* Esquinas ornamentadas en portada */
+.corner {
+position: absolute;
+width: 28px;
+height: 28px;
+border-color: var(--gold-main);
+border-style: solid;
+pointer-events: none;
+}
+
+.corner-tl {
+top: 12px;
+left: 12px;
+border-width: 2px 0 0 2px;
+border-top-left-radius: 8px;
+}
+
+.corner-tr {
+top: 12px;
+right: 12px;
+border-width: 2px 2px 0 0;
+border-top-right-radius: 8px;
+}
+
+.corner-bl {
+bottom: 12px;
+left: 12px;
+border-width: 0 0 2px 2px;
+border-bottom-left-radius: 8px;
+}
+
+.corner-br {
+bottom: 12px;
+right: 12px;
+border-width: 0 2px 2px 0;
+border-bottom-right-radius: 8px;
+}
+
+.crest-container {
+display: flex;
+justify-content: center;
+margin-bottom: 6px;
+}
+
+.crest-svg {
+width: 190px;
+height: auto;
+filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.25));
+}
+
+.subtitle-top {
+font-size: 1.05rem;
+font-style: italic;
+color: var(--gold-light);
+letter-spacing: 0.6px;
+margin-bottom: 6px;
+}
+
+.event-type {
+font-family: "Cinzel Decorative", serif;
+font-size: 1.35rem;
+letter-spacing: 3px;
+text-transform: uppercase;
+color: var(--gold-main);
+margin-bottom: 4px;
+}
+
+.quinceanera-name {
+font-family: "Great Vibes", cursive;
+font-size: clamp(4.2rem, 12vw, 5.8rem);
+font-weight: 400;
+line-height: 1.05;
+background: linear-gradient(180deg, #fff8d6 0%, #f1d378 52%, #c59b27 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+filter: drop-shadow(0 4px 14px rgba(212, 175, 55, 0.35));
+margin: 4px 0 12px;
+}
+
+.divider {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 14px;
+margin: 14px auto;
+color: var(--gold-main);
+}
+
+.divider::before,
+.divider::after {
+content: "";
+height: 1px;
+width: 75px;
+background: linear-gradient(90deg, transparent, var(--gold-main), transparent);
+}
+
+.welcome-quote {
+font-size: 1.2rem;
+color: var(--cream-text);
+max-width: 500px;
+margin: 0 auto;
+}
+
+/* Títulos de sección */
+.section-title {
+font-family: "Cinzel Decorative", serif;
+font-size: 1.35rem;
+color: var(--gold-light);
+margin-bottom: 18px;
+letter-spacing: 1px;
+}
+
+/* Cuenta regresiva */
+.countdown-grid {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 12px;
+max-width: 480px;
+margin: 0 auto;
+}
+
+.time-box {
+background: rgba(6, 28, 20, 0.78);
+border: 1px solid rgba(212, 175, 55, 0.45);
+border-radius: 14px;
+padding: 14px 8px;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.time-number {
+font-family: "Cinzel Decorative", serif;
+font-size: 1.75rem;
+font-weight: 700;
+color: var(--gold-main);
+line-height: 1.1;
+}
+
+.time-label {
+font-size: 0.92rem;
+color: var(--muted-text);
+margin-top: 4px;
+text-transform: uppercase;
+letter-spacing: 0.8px;
+}
+
+/* Detalles Fecha, Hora y Lugar */
+.details-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 16px;
+margin-bottom: 22px;
+}
+
+.detail-item {
+background: rgba(6, 28, 20, 0.65);
+border: 1px solid rgba(212, 175, 55, 0.32);
+border-radius: 16px;
+padding: 18px 14px;
+}
+
+.detail-icon,
+.envelope-icon {
+font-size: 1.8rem;
+margin-bottom: 6px;
+}
+
+.detail-item h4,
+.location-box h4 {
+font-family: "Cinzel Decorative", serif;
+font-size: 0.98rem;
+color: var(--gold-main);
+margin-bottom: 4px;
+}
+
+.detail-highlight {
+font-size: 1.3rem;
+font-weight: 700;
+color: var(--cream-text);
+}
+
+.detail-sub {
+font-size: 1.05rem;
+color: var(--muted-text);
+}
+
+.location-box {
+background: rgba(6, 28, 20, 0.65);
+border: 1px solid rgba(212, 175, 55, 0.35);
+border-radius: 18px;
+padding: 22px 18px;
+}
+
+.venue-name {
+font-family: "Cinzel Decorative", serif;
+font-size: 1.45rem;
+font-weight: 700;
+color: var(--gold-light);
+margin: 4px 0;
+}
+
+.venue-note {
+font-size: 1.1rem;
+color: var(--muted-text);
+margin-bottom: 16px;
+}
+
+.map-frame {
+width: 100%;
+height: 210px;
+border-radius: 14px;
+overflow: hidden;
+border: 1px solid rgba(212, 175, 55, 0.45);
+margin-bottom: 18px;
+}
+
+.map-frame iframe {
+width: 100%;
+height: 100%;
+border: 0;
+}
+
+.gold-btn {
+display: inline-block;
+padding: 12px 26px;
+border-radius: 999px;
+background: linear-gradient(135deg, #f3d778 0%, var(--gold-main) 55%, #b1881e 100%);
+color: #072117;
+font-family: "Cinzel Decorative", serif;
+font-size: 0.88rem;
+font-weight: 700;
+text-decoration: none;
+letter-spacing: 0.6px;
+box-shadow: 0 6px 18px rgba(212, 175, 55, 0.3);
+transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gold-btn:hover {
+transform: translateY(-2px);
+box-shadow: 0 10px 24px rgba(212, 175, 55, 0.45);
+}
+
+/* Código de vestimenta */
+.dresscode-main {
+font-family: "Great Vibes", cursive;
+font-size: 3rem;
+color: var(--gold-main);
+line-height: 1.1;
+margin-bottom: 6px;
+}
+
+.dresscode-desc {
+font-size: 1.15rem;
+color: var(--muted-text);
+margin-bottom: 18px;
+}
+
+.reserved-notice {
+background: linear-gradient(135deg, rgba(212, 175, 55, 0.14), rgba(19, 70, 51, 0.55));
+border: 1.5px solid var(--gold-main);
+border-radius: 16px;
+padding: 18px 16px;
+}
+
+.notice-badge {
+display: inline-block;
+font-family: "Cinzel Decorative", serif;
+font-size: 0.78rem;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 1px;
+color: #072117;
+background: var(--gold-light);
+padding: 3px 12px;
+border-radius: 999px;
+margin-bottom: 8px;
+}
+
+.reserved-notice p {
+font-size: 1.18rem;
+color: var(--cream-text);
+}
+
+.reserved-notice strong {
+color: var(--gold-light);
+}
+
+.color-swatches {
+display: flex;
+justify-content: center;
+gap: 14px;
+margin-top: 12px;
+}
+
+.swatch {
+width: 28px;
+height: 28px;
+border-radius: 50%;
+border: 2px solid #fff8d6;
+box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+.swatch-green {
+background: linear-gradient(135deg, #2d8a5b, #0f4c2e);
+}
+
+.swatch-gold {
+background: linear-gradient(135deg, #fbf0b2, #d4af37);
+}
+
+/* Lluvia de sobres */
+.gift-text {
+font-size: 1.18rem;
+color: var(--cream-text);
+max-width: 500px;
+margin: 0 auto;
+}
+
+.gift-text strong {
+color: var(--gold-light);
+}
+
+/* Pie de página */
+.footer-note {
+text-align: center;
+padding: 8px 12px;
+color: var(--muted-text);
+font-size: 1.15rem;
+}
+
+.footer-note strong {
+color: var(--gold-light);
+}
+
+.footer-small {
+font-size: 0.95rem;
+opacity: 0.85;
+margin-top: 2px;
+}
+
+/* Responsivo para móviles */
+@media (max-width: 520px) {
+.hero-card,
+.section-card {
+padding: 28px 18px;
+}
+
+.countdown-grid {
+gap: 8px;
+}
+
+.time-number {
+font-size: 1.45rem;
+}
+
+.details-grid {
+grid-template-columns: 1fr;
+}
+}

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mis XV Años - Isabel</title>
+<!-- Fuentes elegantes de Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&display=swap" rel="stylesheet" />
+<!-- Enlace al archivo CSS -->
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<!-- Contenedor de luciérnagas animadas -->
+<div id="fireflies-container" aria-hidden="true"></div>
+
+<!-- Control flotante de música -->
+<div class="music-widget">
+<button id="music-toggle" class="music-btn" type="button" aria-label="Reproducir o pausar música">
+<span id="music-icon">♫</span>
+<span id="music-label">Escuchar Vals</span>
+</button>
+<a
+href="https://youtu.be/5vHv02NMtpI?si=xxBzIttsyDDV00Sa"
+target="_blank"
+rel="noopener noreferrer"
+class="yt-fallback-link"
+>
+Abrir en YouTube ↗
+</a>
+</div>
+
+<main class="invitation-wrapper">
+<!-- PORTADA / HERO -->
+<header class="hero-card">
+<div class="corner corner-tl"></div>
+<div class="corner corner-tr"></div>
+<div class="corner corner-bl"></div>
+<div class="corner corner-br"></div>
+
+<!-- Estrella Evangeline + Corona Dorada -->
+<div class="crest-container">
+<svg class="crest-svg" viewBox="0 0 220 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<defs>
+<linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#f9e596" />
+<stop offset="50%" stop-color="#d4af37" />
+<stop offset="100%" stop-color="#9c7818" />
+</linearGradient>
+<radialGradient id="starGlow" cx="50%" cy="50%" r="50%">
+<stop offset="0%" stop-color="#fffbe6" stop-opacity="1" />
+<stop offset="45%" stop-color="#f6d365" stop-opacity="0.7" />
+<stop offset="100%" stop-color="#f6d365" stop-opacity="0" />
+</radialGradient>
+</defs>
+
+<!-- Resplandor de Evangeline -->
+<circle cx="110" cy="24" r="22" fill="url(#starGlow)" />
+<!-- Estrella Evangeline -->
+<path
+d="M110 8L113.2 20.8L126 24L113.2 27.2L110 40L106.8 27.2L94 24L106.8 20.8L110 8Z"
+fill="#fff8d6"
+/>
+
+<!-- Corona Real Dorada -->
+<path
+d="M58 104L48 64L78 82L110 52L142 82L172 64L162 104H58Z"
+stroke="url(#goldGrad)"
+stroke-width="3"
+fill="rgba(212, 175, 55, 0.14)"
+stroke-linejoin="round"
+/>
+<circle cx="48" cy="60" r="4" fill="#f9e596" />
+<circle cx="110" cy="48" r="5" fill="#fff3b0" />
+<circle cx="172" cy="60" r="4" fill="#f9e596" />
+<rect x="56" y="106" width="108" height="7" rx="3.5" fill="url(#goldGrad)" />
+
+<!-- Nenúfar / Flor de Loto debajo -->
+<path
+d="M110 118C103 126 98 134 110 142C122 134 117 126 110 118Z"
+fill="#8fd694"
+opacity="0.9"
+/>
+<path
+d="M106 123C94 123 84 129 88 139C96 141 103 137 106 123Z"
+fill="#5eb568"
+opacity="0.85"
+/>
+<path
+d="M114 123C126 123 136 129 132 139C124 141 117 137 114 123Z"
+fill="#5eb568"
+opacity="0.85"
+/>
+</svg>
+</div>
+
+<p class="subtitle-top">A la luz de las estrellas del pantano encantado</p>
+<h2 class="event-type">Mis XV Años</h2>
+<h1 class="quinceanera-name">Isabel</h1>
+
+<div class="divider">
+<span>✦</span>
+</div>
+
+<p class="welcome-quote">
+“Los sueños sí se hacen realidad cuando los persigues con el corazón.”
+<br />
+Te invito a celebrar conmigo una noche mágica llena de ilusión, música y alegría.
+</p>
+</header>
+
+<!-- CUENTA REGRESIVA -->
+<section class="section-card countdown-section" aria-label="Cuenta regresiva">
+<h3 class="section-title">Falta muy poco para esta noche mágica</h3>
+<div class="countdown-grid" id="countdown">
+<div class="time-box">
+<span id="days" class="time-number">00</span>
+<span class="time-label">Días</span>
+</div>
+<div class="time-box">
+<span id="hours" class="time-number">00</span>
+<span class="time-label">Horas</span>
+</div>
+<div class="time-box">
+<span id="minutes" class="time-number">00</span>
+<span class="time-label">Minutos</span>
+</div>
+<div class="time-box">
+<span id="seconds" class="time-number">00</span>
+<span class="time-label">Segundos</span>
+</div>
+</div>
+</section>
+
+<!-- FECHA, HORA Y UBICACIÓN -->
+<section class="section-card details-section" aria-label="Detalles del evento">
+<h3 class="section-title">¿Cuándo y Dónde?</h3>
+
+<div class="details-grid">
+<div class="detail-item">
+<div class="detail-icon">📅</div>
+<h4>Fecha</h4>
+<p class="detail-highlight">Sábado, 26 de Diciembre</p>
+<p class="detail-sub">2026</p>
+</div>
+
+<div class="detail-item">
+<div class="detail-icon">🕖</div>
+<h4>Hora</h4>
+<p class="detail-highlight">7:00 PM</p>
+<p class="detail-sub">Recepción puntual</p>
+</div>
+</div>
+
+<div class="location-box">
+<div class="detail-icon">📍</div>
+<h4>Lugar de la Celebración</h4>
+<p class="venue-name">Restaurant Monarca</p>
+<p class="venue-note">¡Te esperamos para brindar y bailar bajo las estrellas!</p>
+
+<!-- Mapa embebido de búsqueda -->
+<div class="map-frame">
+<iframe
+title="Ubicación Restaurant Monarca"
+src="https://maps.google.com/maps?q=Restaurant%20Monarca&t=&z=15&ie=UTF8&iwloc=&output=embed"
+loading="lazy"
+referrerpolicy="no-referrer-when-downgrade"
+></iframe>
+</div>
+
+<a
+href="https://www.google.com/maps/search/?api=1&query=Restaurant+Monarca"
+target="_blank"
+rel="noopener noreferrer"
+class="gold-btn"
+>
+Ver ubicación en Google Maps
+</a>
+</div>
+</section>
+
+<!-- CÓDIGO DE VESTIMENTA -->
+<section class="section-card dresscode-section" aria-label="Código de vestimenta">
+<h3 class="section-title">Código de Vestimenta</h3>
+<p class="dresscode-main">Formal</p>
+<p class="dresscode-desc">
+Queremos que luzcas espectacular en esta velada tan especial.
+</p>
+
+<div class="reserved-notice">
+<span class="notice-badge">Aviso Importante</span>
+<p>
+Los colores <strong>Verde</strong> y <strong>Dorado</strong> están reservados exclusivamente para la quinceañera.
+</p>
+<div class="color-swatches" aria-hidden="true">
+<span class="swatch swatch-green" title="Verde reservado"></span>
+<span class="swatch swatch-gold" title="Dorado reservado"></span>
+</div>
+</div>
+</section>
+
+<!-- LLUVIA DE SOBRES -->
+<section class="section-card gift-section" aria-label="Lluvia de sobres">
+<div class="envelope-icon">✉️</div>
+<h3 class="section-title">Lluvia de Sobres</h3>
+<p class="gift-text">
+Tu presencia y compañía en este día tan importante es mi mejor regalo. Si deseas tener un detalle adicional conmigo, contaremos con <strong>lluvia de sobres</strong> en la recepción.
+</p>
+</section>
+
+<!-- PIE DE PÁGINA -->
+<footer class="footer-note">
+<div class="divider">
+<span>✦</span>
+</div>
+<p>Con cariño, <strong>Isabel</strong></p>
+<p class="footer-small">Mis XV Años • 26 de Diciembre</p>
+</footer>
+</main>
+
+<!-- Enlace al archivo JavaScript -->
+<script src="script.js"></script>
+</body>
+</html>
